@@ -6,3 +6,17 @@
 .title {
     margin: auto;
 }
+
+.text {
+    width: 100%;
+}
+
+.text p {
+    margin: auto;
+    text-align: center;
+}
+
+.button button {
+    margin: auto;
+    display: block;
+}
