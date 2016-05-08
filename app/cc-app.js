@@ -100,8 +100,8 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate', 'ngRoute'])
           }
       }; 
   }])
-  .controller('CountriesCtrl', ['$scope', '$routeParams', '$location','countryInfo', 'countriesCache', 'getNeighbors', 'buildCountry',
-      function($scope, $routeParams, $location, countryInfo, countriesCache, getNeighbors, buildCountry){
+  .controller('CountriesCtrl', ['$scope', '$routeParams', '$location','countryInfo', 'countriesCache', 'getNeighbors', 'buildCountry', '$timeout',
+      function($scope, $routeParams, $location, countryInfo, countriesCache, getNeighbors, buildCountry, $timeout){
       var cache = countriesCache;
       $scope.geocountries = cache.get('called');
       console.log("above func");
@@ -109,13 +109,8 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate', 'ngRoute'])
       $scope.toCountry = function(geocountry){
         getNeighbors(geocountry.geonameId).then(function(response){
             buildCountry(geocountry, response);
-            // countryInfo.name = geocountry.countryName;
-            // countryInfo.pop = geocountry.population;
-            // countryInfo.area = geocountry.areaInSqKm;
-            // countryInfo.capital = geocountry.capital;
-            // countryInfo.neighbors = response.data.geonames;
-            // countryInfo.numNeigh = response.data.geonames.length;
-            // console.log(countryInfo.neighbors);
+            var path = '/countries/'+countryInfo.name+'/capital';
+            $location.path(path);
         }),
         function(response){
           alert('Error');

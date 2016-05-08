@@ -4,7 +4,7 @@
 <div class="countries">
     <table>
         <tr ng-repeat="geocountry in geocountries">
-            <td class="countryName" ng-click="toCountry(geocountry)"><a ng-href="#countries/{{geocountry.countryName}}/capital"><p>{{geocountry.countryName}}</p></a></td>
+            <td class="countryName" ng-click="toCountry(geocountry)"><p>{{geocountry.countryName}}</p></td>
             <td>{{geocountry.countryCode}}</td>
             <td>{{geocountry.capital}}</td>
             <td>{{geocountry.areaInSqKm}}</td>
