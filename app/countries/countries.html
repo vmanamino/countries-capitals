@@ -1,1 +1,18 @@
-<h1>Countries</h1>
+<div class="countries-heading">
+    <h1>Countries</h1>
+</div>
+<div class="countries">
+    <table>
+        <tr ng-repeat="geocountry in geocountries">
+            <td class="countryName" ng-click="toCountry(geocountry)">{{geocountry.countryName}}</td>
+            <td>{{geocountry.countryCode}}</td>
+            <td>{{geocountry.capital}}</td>
+            <td>{{geocountry.areaInSqKm}}</td>
+            <td>{{geocountry.population}}</td>
+            <td>{{geocountry.continent}}</td>
+        </tr>
+    </table>
+</div>
+<div class="go-home">
+    <button type="button" ng-click="goHome()">Home</button>
+</div>

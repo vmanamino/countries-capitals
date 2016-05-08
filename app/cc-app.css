@@ -20,3 +20,31 @@
     margin: auto;
     display: block;
 }
+
+.countries-heading {
+    width: 100%;
+}
+
+.countries-heading h1 {
+    text-align: center;
+}
+
+.countries table {
+    margin: 0 auto;
+    height: 400px;
+    overflow: auto;
+    width: 1000px;
+    display: block;
+}
+
+.go-home button {
+    margin: auto;
+    display: block;
+}
+
+.countryName:hover {
+    color: #FF00FF;
+    cursor: pointer;
+}
+
+
