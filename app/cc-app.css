@@ -59,3 +59,11 @@
 .details table {
     margin: 0 auto;
 }
+
+.navigate {
+    text-align: center;
+}
+
+.navigate ul {
+    display: inline;
+}
