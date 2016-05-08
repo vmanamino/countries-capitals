@@ -1,4 +1,4 @@
-angular.module('ccApp', ['ngRoute', 'ngAnimate'])
+angular.module('ccApp', ['ngRoute', 'ngAnimate', 'ngRoute'])
   .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     $routeProvider
@@ -57,12 +57,11 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate'])
       });
     };
   }])
-  .run(['$rootScope', '$location', function($rootScope, $location) {
-        'use strict';
-        $rootScope.$on('$routeChangeError', function() {
-            $location.path('/error');
-        });
-    }])
+  // .run(['$rootScope', '$location', function($rootScope, $location) {
+  //       $rootScope.$on('$routeChangeError', function() {
+  //           $location.path('/error');
+  //       });
+  //   }])
   .controller('HomeCtrl', ['$scope', '$location', 'getCountries', 'countriesCache', 
       function($scope, $location, getCountries, countriesCache){
         
@@ -80,10 +79,12 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate'])
           }
       }; 
   }])
-  .controller('CountriesCtrl', ['$scope', '$location', 'countryInfo', 'countriesCache', 'getNeighbors', 
-      function($scope, $location, countryInfo, countriesCache, getNeighbors){
+  .controller('CountriesCtrl', ['$scope', '$route', '$routeParams', '$location','countryInfo', 'countriesCache', 'getNeighbors', 
+      function($scope, $route, $routeParams, $location, countryInfo, countriesCache, getNeighbors){
       var cache = countriesCache;
       $scope.geocountries = cache.get('called');
+      console.log("above func");
+      console.log($routeParams);
       $scope.toCountry = function(geocountry){
         getNeighbors(geocountry.geonameId).then(function(response){
             countryInfo.name = geocountry.countryName;
@@ -97,14 +98,18 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate'])
         function(response){
           alert('Error');
         };
-        $location.path('/countries/:country/capital');
       };
       $scope.goHome = function(){
         $location.path('/');
       };
+      console.log("countries path");
+      console.log($routeParams);
   }])
-  .controller('CountryCtrl', ['$scope', 'countryInfo', function($scope, countryInfo){
+  .controller('CountryCtrl', ['$scope', '$location', 'countryInfo', 'getNeighbors', '$routeParams',
+      function($scope, $location, countryInfo, getNeighbors, $routeParams){
+      // $location.path('/countries/'+countryInfo.name+'/capital');
+      console.log("country views");
+      console.log($routeParams);
       $scope.country = countryInfo;
-      console.log($scope.country);
   }]);
   

@@ -47,4 +47,15 @@
     cursor: pointer;
 }
 
+.name {
+    width: 100%;
+}
 
+.name p {
+    margin: 0;
+    text-align: center;
+}
+
+.details table {
+    margin: 0 auto;
+}

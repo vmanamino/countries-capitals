@@ -1,1 +1,23 @@
-<h1>Country!!!</h1>
+<div class="name">
+    <p>{{country.name}}</p>
+</div>
+<div class="details">
+    <table>
+        <tr>
+            <td class="label">Population</td>
+            <td>{{country.pop}}</td>
+        </tr>
+        <tr>
+            <td class="label">Area</td>
+            <td>{{country.area}}</td>
+        </tr>
+        <tr>
+            <td class="label">Capital</td>
+            <td>{{country.capital}}</td>
+        </tr>
+        <tr>
+            <td class="label">{{country.numNeigh}} neighbor(s)</td>
+            <td id="neighbors"><span ng-repeat="neighbor in country.neighbors">{{neighbor.countryName}}{{$last ? '' : ', '}}</span></td>
+        </tr>
+    </table>
+</div>
