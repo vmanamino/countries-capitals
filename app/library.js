@@ -15,15 +15,15 @@ angular.module('library', [])
   .factory('countriesCache', ['$cacheFactory', function($cacheFactory){
         return $cacheFactory('countriesCached');
   }])
-  .factory('getCountries', ['$http', function($http, $q){
+  .factory('getCountries', ['$http', function($http){
         var request = {
                 username: 'vman'
             };
-        return $http({
+        return { countriesObject : $http({
                 method: 'GET',
                 url: 'http://api.geonames.org/countryInfoJSON', 
                 params: request
-            });
+            })};
   }])
   .factory('getCountry', ['$http', function($http){
         return function(countryCode){
@@ -43,7 +43,7 @@ angular.module('library', [])
             });
         };
   }])
-  .factory('buildCountry', ['countryInfo', function(countryInfo){
+  .factory('buildCountry', ['countryInfo', '$q', '$timeout', function(countryInfo, $q, $timeout){
         return function(geocountry, response){
             countryInfo.name = geocountry.countryName;
             countryInfo.code = geocountry.countryCode;
