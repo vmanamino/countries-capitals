@@ -64,6 +64,15 @@
     text-align: center;
 }
 
-.navigate ul {
+.images ul {
     display: inline;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+}
+
+.images {
+    text-align: center;
 }

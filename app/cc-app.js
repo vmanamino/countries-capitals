@@ -23,8 +23,3 @@ angular.module('ccApp', ['library', 'ngRoute', 'ngAnimate', 'ngRoute'])
         })
       .otherwise('/error');
   }]);
-  
-  
-  
-  
-  
