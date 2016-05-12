@@ -22,4 +22,20 @@ angular.module('ccApp', ['library', 'ngRoute', 'ngAnimate', 'ngRoute'])
           template : '<p>Error - Page Not Found</p>'
         })
       .otherwise('/error');
+  }])
+  .run(['$rootScope', '$location', '$timeout', function($rootScope, $location, $timeout) {
+        'use strict';
+      $rootScope.$on('$routeChangeError', function() {
+          $location.path('/error');
+      });
+      $rootScope.$on('$routeChangeStart', function() {
+          $rootScope.isLoading = true;    
+          console.log('isloading');
+          console.log($rootScope.isLoading);
+      });
+      $rootScope.$on('$routeChangeSuccess', function() {
+          $timeout(function(){
+          $rootScope.isLoading = false;
+          }, 5000); 
+      });
   }]);

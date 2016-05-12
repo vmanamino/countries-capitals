@@ -1,7 +1,7 @@
 angular.module('ccApp')
-  .controller('CountryCtrl', ['$scope', '$location', 'countryInfo', 'getNeighbors', 'getCountry', 'buildCountry', '$routeParams',
-  '$q',
-      function($scope, $location, countryInfo, getNeighbors, getCountry, buildCountry, $routeParams, $q){
+  .controller('CountryCtrl', ['$scope', '$location', 'countryInfo', 'getNeighbors', 
+  'getCountry', 'buildCountry', '$q',
+      function($scope, $location, countryInfo, getNeighbors, getCountry, buildCountry, $q){
       $scope.country = countryInfo;
      
       $scope.toCountry = function(neighbor){

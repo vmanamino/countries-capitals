@@ -76,3 +76,20 @@ li {
 .images {
     text-align: center;
 }
+
+.loading {
+  position:relative;
+  height:100%;
+}
+.loading:before {
+  position:absolute;
+  content:"Waiting...";
+  text-align: center;
+  left:0;
+  bottom:0;
+  right:0;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.9) no-repeat center center;
+  /*background-image: url('loading-animation.gif');*/
+}

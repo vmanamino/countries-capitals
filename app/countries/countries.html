@@ -2,7 +2,7 @@
     <h1>Countries</h1>
 </div>
 <div class="countries">
-    <table>
+    <table ng-class="{loading: isLoading}">
         <tr ng-repeat="geocountry in geocountries">
             <td class="countryName" ng-click="toCountry(geocountry)"><p>{{geocountry.countryName}}</p></td>
             <td>{{geocountry.countryCode}}</td>

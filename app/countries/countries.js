@@ -3,25 +3,13 @@ angular.module('ccApp')
   'buildCountry', '$timeout', '$q',
         function($scope, $routeParams, $location, countryInfo, getCountries, countriesCache, getNeighbors, 
         buildCountry, $timeout, $q){
+            
         getCountries.countriesObject.then(function(response){
-            console.log("get countries!");
-            console.log(response.data.geonames);
             $scope.geocountries = response.data.geonames;
         },
         function(response){
             alert("error");
         });
-        
-        var timeforcache = new Date();
-        
-        // console.log('time that cache is loaded to page');
-        // console.log(timeforcache.getMilliseconds());
-        
-        // var cache = countriesCache;
-        // $scope.geocountries = cache.get('called');
-        
-        // console.log("above func");
-        // console.log($routeParams);
         
         $scope.toCountry = function(geocountry){
             getNeighbors(geocountry.geonameId)
