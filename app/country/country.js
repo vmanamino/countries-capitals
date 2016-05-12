@@ -3,36 +3,40 @@ angular.module('ccApp')
   '$q',
       function($scope, $location, countryInfo, getNeighbors, getCountry, buildCountry, $routeParams, $q){
       $scope.country = countryInfo;
-      var geocountry = '';
-      var countryGot = function(neighbor) {
-        var q = $q.defer();
-        getCountry(neighbor.countryCode).then(function(response){
+     
+      $scope.toCountry = function(neighbor){
+        
+          var geocountry = '';
+          var neighbors = '';
+          var one = $q.defer();
+          var two = $q.defer();
+          
+          getCountry(neighbor.countryCode).then(function(response){
               geocountry = response.data.geonames[0];
-              q.resolve(geocountry);
+              one.resolve(geocountry);
           }),
           function(response){
-              q.reject('country was not able to be retrieved');
+              one.reject('country was not able to be retrieved');
           }; 
-          return q.promise;
-      };
-      
-      $scope.toCountry = function(neighbor){
-          var neighbors = '';
+          
           getNeighbors(neighbor.geonameId).then(function(response){
               neighbors = response;
+              two.resolve(neighbors);
           }),
           function(response){
-              alert('Error');
+              two.reject('neighbors not got');
           };
-          countryGot(neighbor).then(
-              function(country){
-                  console.log(country);
-                  buildCountry(country, neighbors);
-              },
-              function(error){
-                  console.log('error');
-                  return error;
+          
+          var all = $q.all([one.promise, two.promise]);
+          all.then(function(data){
+              console.log('promises');
+              console.log(data);
+              var country = data[0];
+              var countryNeighbors = data[1];
+              buildCountry(country, countryNeighbors);
           });
+          
+          console.log(countryInfo);
           $scope.country = countryInfo;
       };
       $scope.goHome = function(){
