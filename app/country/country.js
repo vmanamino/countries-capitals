@@ -27,6 +27,8 @@ angular.module('ccApp')
               two.reject('neighbors not got');
           };
           
+          console.log('two promise');
+          console.log(two.promise);
           var all = $q.all([one.promise, two.promise]);
           all.then(function(data){
               console.log('promises');
