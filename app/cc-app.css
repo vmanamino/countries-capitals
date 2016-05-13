@@ -78,18 +78,37 @@ li {
 }
 
 .loading {
-  position:relative;
-  height:100%;
+    position:relative;
+    height:100%;
 }
 .loading:before {
-  position:absolute;
-  content:"Waiting...";
-  text-align: center;
-  left:0;
-  bottom:0;
-  right:0;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,0.9) no-repeat center center;
-  /*background-image: url('loading-animation.gif');*/
+    position:absolute;
+    content:"Loading...";
+    text-align: center;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.9) no-repeat center center;
+    /*background-image: url('loading-animation.gif');*/
 }
+
+.animate-container { 
+    position:relative; 
+    min-height: 100%;
+}
+
+.animate.ng-leave,
+.animate.ng-enter.ng-enter-active {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.animate.ng-enter,
+.animate.ng-leave.ng-leave-active {
+    opacity: 0;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
