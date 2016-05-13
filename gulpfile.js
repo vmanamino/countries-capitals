@@ -5,4 +5,3 @@ gulp.task('connect', function() {
     root: 'app/'
   });
 });
-
