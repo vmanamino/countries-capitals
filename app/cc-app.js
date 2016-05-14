@@ -29,13 +29,11 @@ angular.module('ccApp', ['library', 'ngRoute', 'ngAnimate', 'ngRoute'])
           $location.path('/error');
       });
       $rootScope.$on('$routeChangeStart', function() {
-          $rootScope.isLoading = true;    
-          console.log('isloading');
-          console.log($rootScope.isLoading);
+          $rootScope.isLoading = true;  
       });
       $rootScope.$on('$routeChangeSuccess', function() {
           $timeout(function(){
           $rootScope.isLoading = false;
-          }, 5000); 
+          }, 4000); 
       });
   }]);

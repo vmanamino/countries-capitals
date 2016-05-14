@@ -25,7 +25,4 @@ angular.module('ccApp')
         $scope.goHome = function(){
         $location.path('/');
         };
-        
-    //     console.log("countries path");
-    //   console.log($routeParams);
   }]);

@@ -5,7 +5,6 @@ angular.module('ccApp')
       $scope.country = countryInfo;
      
       $scope.toCountry = function(neighbor){
-        
           var geocountry = '';
           var neighbors = '';
           var one = $q.defer();
@@ -28,17 +27,13 @@ angular.module('ccApp')
           };
           
           console.log('two promise');
-          console.log(two.promise);
+          console.log(two);
           var all = $q.all([one.promise, two.promise]);
           all.then(function(data){
-              console.log('promises');
-              console.log(data);
               var country = data[0];
               var countryNeighbors = data[1];
               buildCountry(country, countryNeighbors);
           });
-          
-          console.log(countryInfo);
           $scope.country = countryInfo;
       };
       $scope.goHome = function(){
