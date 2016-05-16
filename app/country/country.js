@@ -7,32 +7,31 @@ angular.module('ccApp')
       $scope.toCountry = function(neighbor){
           var geocountry = '';
           var neighbors = '';
-          var one = $q.defer();
-          var two = $q.defer();
+          var country = $q.defer();
+          var countryNeighbors = $q.defer();
           
           getCountry(neighbor.countryCode).then(function(response){
               geocountry = response.data.geonames[0];
-              one.resolve(geocountry);
+              country.resolve(geocountry);
           }),
           function(response){
-              one.reject('country was not able to be retrieved');
+              country.reject('country was not able to be retrieved');
           }; 
           
           getNeighbors(neighbor.geonameId).then(function(response){
               neighbors = response;
-              two.resolve(neighbors);
+              countryNeighbors.resolve(neighbors);
           }),
           function(response){
-              two.reject('neighbors not got');
+              countryNeighbors.reject('neighbors not got');
           };
           
-          console.log('two promise');
-          console.log(two);
-          var all = $q.all([one.promise, two.promise]);
+          
+          var all = $q.all([country.promise, countryNeighbors.promise]);
           all.then(function(data){
-              var country = data[0];
-              var countryNeighbors = data[1];
-              buildCountry(country, countryNeighbors);
+              var land = data[0];
+              var landNachbarn = data[1];
+              buildCountry(land, landNachbarn);
           });
           $scope.country = countryInfo;
       };

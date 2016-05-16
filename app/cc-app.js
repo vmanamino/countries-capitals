@@ -1,4 +1,4 @@
-angular.module('ccApp', ['library', 'ngRoute', 'ngAnimate', 'ngRoute'])
+angular.module('ccApp', ['library', 'ngRoute', 'ngAnimate'])
   .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     $routeProvider
