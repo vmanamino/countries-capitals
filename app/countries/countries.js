@@ -23,6 +23,6 @@ angular.module('ccApp')
             };
         };
         $scope.goHome = function(){
-        $location.path('/');
+            $location.path('/');
         };
   }]);
