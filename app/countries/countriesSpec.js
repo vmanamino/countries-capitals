@@ -57,12 +57,12 @@ describe('CountriesCtrl', function(){
             $scope: scope
         });
     }));
-    it('should change location path via function toCountry', function(){
-        httpBackend.when(getNeighbors()).respond(location.path('/countries/country/capital'));
-        scope.toCountry(geocountry);
-        console.log(location.path());
-        expect(location.path()).toBe('/countries/country/capital');
-    });
+    // it('should change location path via function toCountry', function(){
+    //     httpBackend.when(getNeighbors()).respond(location.path('/countries/country/capital'));
+    //     scope.toCountry(geocountry);
+    //     console.log(location.path());
+    //     expect(location.path()).toBe('/countries/country/capital');
+    // });
     it('should change route path via goHome function', function(){
         scope.goHome();
         expect(location.path()).toBe('/');
