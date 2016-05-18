@@ -20,6 +20,7 @@ module.exports = function(config) {
       './app/bower_components/angular-animate/angular-animate.js',
       './app/bower_components/angular/angular-mocks.js',
       './app/cc-app.js',
+      './app/librarySpec.js',
       './app/library.js',
       './app/home/homeSpec.js',
       './app/home/home.js',
