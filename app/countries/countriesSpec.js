@@ -46,24 +46,25 @@ describe('CountriesCtrl', function(){
     // }));
     
     
-    beforeEach(inject(function($controller, $rootScope, $location, $httpBackend, _getNeighbors_, _buildCountry_){
+    beforeEach(inject(function($controller, $rootScope, $location, $httpBackend, getNeighbors, _buildCountry_){
         buildCountry = _buildCountry_;
-        getNeighbors = _getNeighbors_;
+        getNeighbors = getNeighbors;
         httpBackend = $httpBackend;
+        httpBackend.when(getNeighbors(geocountry.geonameId)).respond('success');
         location = $location;
         scope = $rootScope.$new();
-        // getNeighbors = _getNeighbors_;
         ctrl = $controller('CountriesCtrl', {
             $scope: scope
         });
     }));
-    // it('should change location path via function toCountry', function(){
-    //     httpBackend.when(getNeighbors()).respond(location.path('/countries/country/capital'));
-    //     scope.toCountry(geocountry);
-    //     console.log(location.path());
-    //     expect(location.path()).toBe('/countries/country/capital');
-    // });
+    xit('should change location path via function toCountry', function(){
+        console.log(location.path());
+        scope.toCountry(geocountry);
+        console.log(location.path());
+        expect(location.path()).toBe('/countries/country/capital');
+    });
     it('should change route path via goHome function', function(){
+        console.log(location.path());
         scope.goHome();
         expect(location.path()).toBe('/');
     });

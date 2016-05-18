@@ -24,7 +24,9 @@ module.exports = function(config) {
       './app/home/homeSpec.js',
       './app/home/home.js',
       './app/countries/countries.js',
-      './app/countries/countriesSpec.js'
+      './app/countries/countriesSpec.js',
+      './app/country/countrySpec.js',
+      './app/country/country.js'
     ],
 
 
