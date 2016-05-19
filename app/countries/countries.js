@@ -14,6 +14,7 @@ angular.module('ccApp')
         $scope.toCountry = function(geocountry){
             getNeighbors(geocountry.geonameId)
             .then(function(response){
+                console.log(response);
                 buildCountry(geocountry, response);
                 var path = '/countries/'+countryInfo.name+'/capital';
                 $location.path(path);
