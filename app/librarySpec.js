@@ -95,7 +95,7 @@ describe('buildCountry', function(){
         population: "81802257"
     };
     var neighbors = {
-        "data": { "geonames": [{"name": "liberland"}, {"name" : "nueva germania"}] }
+        "data": { "geonames": [{"name": "liberland"}, {"name" : "nueva espana"}] }
     };
     
     var country = {
