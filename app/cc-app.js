@@ -4,17 +4,17 @@ angular.module('ccApp', ['library', 'ngRoute', 'ngAnimate'])
     $routeProvider
       .when('/',
         { 
-          templateUrl : './home/home.html',
+          templateUrl : './app/home/home.html',
           controller: 'HomeCtrl'
         })
       .when('/countries',
         {
-          templateUrl : './countries/countries.html',
+          templateUrl : './app/countries/countries.html',
           controller: 'CountriesCtrl'
         })
       .when('/countries/:country/capital',
         {
-          templateUrl : './country/country.html',
+          templateUrl : './app/country/country.html',
           controller: 'CountryCtrl'
         })
       .when('/error', 
