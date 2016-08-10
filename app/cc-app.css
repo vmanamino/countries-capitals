@@ -112,7 +112,7 @@ li {
     transition:all linear 0.5s;
 }
 
-.table .table-bordered {
+.table.table-bordered {
     width: 25%;
     margin: 0 auto;
 }
